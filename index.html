@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        /* --- CSS STYLES --- */
+        
+        /* 1. Color Palette & Basics */
+        :root {
+            --bg-color: #f9f9f9;
+            --text-color: #333333;
+            --primary-green: #2e7d32; /* Forest Green */
+            --accent-orange: #ff9800; /* Vibrant Orange */
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* 2. Navigation Bar */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-green);
+        }
+
+        .nav-links button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-left: 20px;
+            color: var(--text-color);
+            transition: color 0.3s;
+        }
+
+        .nav-links button:hover {
+            color: var(--accent-orange);
+        }
+
+        .nav-links button.active {
+            color: var(--primary-green);
+            font-weight: bold;
+            border-bottom: 2px solid var(--accent-orange);
+        }
+
+        /* 3. Page Container */
+        main {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            min-height: 60vh; /* Ensures footer stays down */
+            padding-bottom: 40px;
+        }
+
+        /* Hide pages by default, we use JS to show them */
+        .page-section {
+            display: none;
+            padding: 40px;
+            animation: fadeIn 0.5s;
+        }
+
+        /* The 'active' class makes a page visible */
+        .page-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            color: var(--primary-green);
+            border-left: 5px solid var(--accent-orange);
+            padding-left: 15px;
+        }
+
+        h2 {
+            color: var(--primary-green);
+            margin-top: 30px;
+        }
+
+        /* 4. Projects & Video Styles */
+        .project-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border-left: 4px solid var(--primary-green);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            background: #000;
+            margin-top: 15px;
+            border-radius: 4px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* 5. Resume Styles */
+        .resume-item {
+            margin-bottom: 20px;
+        }
+        .resume-date {
+            color: var(--accent-orange);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        /* 6. Contact Styles */
+        .contact-btn {
+            display: inline-block;
+            background-color: var(--primary-green);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .contact-btn:hover {
+            background-color: var(--accent-orange);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">MyName<span style="color:var(--accent-orange)">.</span></div>
+            <div class="nav-links">
+                <button onclick="showPage('about')" id="btn-about" class="active">About</button>
+                <button onclick="showPage('projects')" id="btn-projects">Projects</button>
+                <button onclick="showPage('resume')" id="btn-resume">Resume</button>
+                <button onclick="showPage('contact')" id="btn-contact">Contact</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about" class="page-section active">
+            <h1>Hello, I'm Nikita Prabhu</h1>
+            <p><strong>High School Student & Aspiring Developer</strong></p>
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+            <p>
+                Welcome to my portfolio! I am currently a student at Emerald High School My name is Nikita Prabhu, I am a sophomore at Emerald Highschool. I am still deciding which career I want to pursue, so I am taking courses and clubs to figure out what I want. Currently I am enrolled in a career class called computer science and I am in a club called Computer Science Honors Society. Both my parents are in the computer science field so I am leaning more towards computer science. Even so, I am also open to business as I have participated in clubs like the Distributive Education Clubs of America also known as DECA. As well as a summer program in Kansas University where I had many experiences in seeing how businesses ran and the process behind marketing and production.
+
+
+
+In the computer science field, I am still new to it so I barely have any experience. Currently, as I have mentioned I am in a computer science course also known as CSE course. I have also built an application outside of school with the help of mentors like my parents and friends who have experience in this field. I am very determined and love to learn new things. I am also a very fast learner and open to change.  In the future, I want to learn a programming language as right now, MIT App Inventor is the application that I am using to start learning computer science. In the future, advanced languages like python are something I would like to learn more about. 
+
+
+
+In conclusion, I am still exploring career options but I am leaning more towards computer science. I love working with computers and learning new things. Hopefully I can master a programming language and create new things! This field has many opportunities and is something I am interested in hopefully to pursue in the future!
+. 
+                I have a passion for technology, design, and problem-solving.
+            </p>
+            <p>
+               
+            </p>
+        </section>
+
+        <section id="projects" class="page-section">
+            <h1>My Projects</h1>
+            <p>Here are some of the things I've been working on.</p>
+
+            <div class="project-card">
+                <h3>Pizza Pricing Project</h3>
+                <p></p>
+                
+                <p><em>Watch the demo below:</em></p>
+                <div class="video-container">
+                    <iframe src="https://drive.google.com/file/d/1Nu4yDZURMIr9aSkD7bDIimB2q2NZ1y-m/view?usp=sharing" title="Sample Video"></iframe>
+                    
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>Project Title 2</h3>
+                    <iframe src="https://drive.google.com/file/d/1j7F67dwpTqoAsf_X41jFZdgH0eY1tN8U/view?usp=sharing" title="Sample Video"></iframe>
+            </div>
+        </section>
+
+        <section id="resume" class="page-section">
+            <h1>Resume</h1>
+            
+            <h2>Education</h2>
+            <div class="resume-item">
+                <div class="resume-date"></div>
+                <h3>Emerald High School</h3>
+                <p>Expected Graduation: 2028</p>
+                <ul>
+                    <li>GPA: 3.83/4.0</li>
+                    <li>Member of Computer Science Club</li>
+                    <li>Varsity Basketball Team</li>
+                     <li>Vice President of LUMOS</li>
+                      <li>Social Media Manager of Project Uplift</li>
+                </ul>
+            </div>
+
+            <h2>Skills</h2>
+            <div class="resume-item">
+                <ul>
+                    <li><strong>Tech:</strong> Basic HTML/CSS, MIT App Inventor</li>
+                    <li><strong>Soft Skills:</strong> Teamwork, Time Management, Public Speaking</li>
+                    <li><strong>Languages:</strong> English, Spanish (Intermediate), Konkani, Hindhi</li>
+                </ul>
+            </div>
+
+            <h2>Experience / Volunteer</h2>
+            <div class="resume-item">
+                <div class="resume-date">Summer 2025</div>
+                </div>Volunteer at the Alemeda County Library </p>
+                  </h3>    
+            </div>Helped run Basketball Summer Camp for Emerald High School</div>
+                   
+
+                </h3>
+                <p>Volunteered at Daycare</p>
+            </div>
+        </section>
+
+        <section id="contact" class="page-section">
+            <h1>Get in Touch</h1>
+            <p>I'd love to hear from you. Feel free to reach out for collaborations or just to say hi!</p>
+            
+            <div style="background: #fdfdfd; padding: 20px; border: 1px solid #eee; margin-top: 20px;">
+                <h3>Contact Info</h3>
+                <p><strong>Email:</strong> nikitaprabhu321@gmail.com</p>
+                
+                <a href="mailto:your.email@example.com" class="contact-btn">Send Me an Email</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 [Your Name]. Built with minimal code.</p>
+    </footer>
+
+    <script>
+        /* --- JAVASCRIPT LOGIC --- */
+        function showPage(pageId) {
+            // 1. Hide all pages
+            const pages = document.querySelectorAll('.page-section');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // 2. Remove 'active' style from all buttons
+            const buttons = document.querySelectorAll('.nav-links button');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // 3. Show the specific page clicked
+            document.getElementById(pageId).classList.add('active');
+
+            // 4. Highlight the specific button clicked
+            document.getElementById('btn-' + pageId).classList.add('active');
+        }
+    </script>
+
+</body>
+
+</html>
